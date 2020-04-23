@@ -40,4 +40,4 @@
 Поиск - открывается по нажатию на пункт Поиск. На разметке находится EditText и Кнопка поиск. При нажатии на кнопку - открывается браузер с поиском введенного текста в выбранном на экране настроек поисковике.
 При нажатии на пункт Выход - приложение закрывается.
 
-<div style="width:260px;max-width:100%;"><div style="height:0;padding-bottom:176.15%;position:relative;"><iframe width="260" height="458" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/3xsl9s"></iframe></div><p><a href="https://imgflip.com/gif/3xsl9s">via Imgflip</a></p></div>
+<img src="https://i.imgflip.com/3xslvp.gif" width="270px">
