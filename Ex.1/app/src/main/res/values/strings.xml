@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ex.1</string>
+    <string name="et_hint_enter">Введите текст!</string>
+    <string name="but_hint_enter">Нажмите на кнопку</string>
+</resources>

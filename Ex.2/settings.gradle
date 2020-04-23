@@ -1,0 +1,2 @@
+rootProject.name='Ex.2 - Coursera'
+include ':app'

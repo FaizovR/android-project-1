@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Ex.2 - Coursera</string>
+    <string name="menuSettings">Настройки</string>
+    <string name="menuSearch">Поиск</string>
+    <string name="menuExit">Выход</string>
+    <string name="rb_google">Google</string>
+    <string name="rb_yandex">Яндекс</string>
+    <string name="rb_bing">Bing</string>
+    <string name="Search">Найти</string>
+    <string name="et_search">Поиск</string>
+    <string name="main_fragment">This a Main Fragment!</string>
+</resources>
