@@ -20,7 +20,7 @@
 Добавить любой градиент в качестве фона обоим экранам.
 По нажатию на Button второго экрана открывается браузер со страницей google.com с вбитым в поиск словом, которое отображается в TextView.
 
-<img src="https://j.gifs.com/ANl7jl.gif" width="270px">
+<img src="https://i.imgflip.com/3xsm53.gif" width="270px">
 
 ## Упражнение №2
 
