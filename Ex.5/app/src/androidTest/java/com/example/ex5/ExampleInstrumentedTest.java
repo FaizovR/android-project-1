@@ -1,4 +1,4 @@
-package com.example.ex3;
+package com.example.ex5;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

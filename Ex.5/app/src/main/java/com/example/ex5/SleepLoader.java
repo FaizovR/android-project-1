@@ -1,13 +1,13 @@
-package com.example.ex3;
+package com.example.ex5;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
 
 import java.util.concurrent.TimeUnit;
 
-public class SleepLoader extends AsyncTaskLoader<String> {
+public class SleepLoader extends AsyncTaskLoader<Boolean> {
 
-	public SleepLoader(Context context) {
+	SleepLoader(Context context) {
 		super(context);
 	}
 
@@ -17,12 +17,12 @@ public class SleepLoader extends AsyncTaskLoader<String> {
 	}
 
 	@Override
-	public String loadInBackground() {
+	public Boolean loadInBackground() {
 		try {
 			TimeUnit.MILLISECONDS.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return true;
 	}
 }

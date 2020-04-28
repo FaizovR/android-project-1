@@ -1,21 +1,27 @@
-package com.example.ex3;
+package com.example.ex5;
 
 import android.app.LoaderManager;
 import android.content.Loader;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
+
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Boolean> {
 
 	public static final int OPERATION_SLEEP_LOADER = 1;
+	public static final String KEY_IS_SLEEP = "KEY_IS_SLEEP";
 
-	Button mLoadButton;
-	ProgressBar mLoadingBar;
-	TextView mLoadTextView;
+	private Boolean isSleep = false;
+
+	private Button mLoadButton;
+	private ProgressBar mLoadingBar;
+	private TextView mLoadTextView;
 
 	private View.OnClickListener mOnButtonPressedClickListener = new View.OnClickListener() {
 		@Override
@@ -35,25 +41,50 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 		mLoadingBar = findViewById(R.id.pb_loading_bar);
 		mLoadTextView = findViewById(R.id.tv_loading_text);
 		mLoadButton.setOnClickListener(mOnButtonPressedClickListener);
+
+		if (savedInstanceState != null) {
+			isSleep = savedInstanceState.getBoolean(KEY_IS_SLEEP);
+			if (isSleep) {
+				loading();
+			}
+		}
+
+		getLoaderManager().initLoader(OPERATION_SLEEP_LOADER, null, this);
 	}
 
 	@Override
-	public Loader<String> onCreateLoader(int id, Bundle args) {
+	public Loader<Boolean> onCreateLoader(int id, Bundle args) {
+		loading();
+		isSleep = true;
+		return new SleepLoader(MainActivity.this);
+	}
+
+	@Override
+	public void onLoadFinished(Loader<Boolean> loader, Boolean data) {
+		isSleep = false;
+		loadFinished();
+	}
+
+	@Override
+	public void onLoaderReset(Loader<Boolean> loader) {
+
+	}
+
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		outState.putBoolean(KEY_IS_SLEEP, isSleep);
+		super.onSaveInstanceState(outState);
+	}
+
+	private void loading() {
 		mLoadButton.setEnabled(false);
 		mLoadingBar.setVisibility(View.VISIBLE);
 		mLoadTextView.setText("Loading..");
-		return new SleepLoader(this);
 	}
 
-	@Override
-	public void onLoadFinished(Loader<String> loader, String data) {
+	private void loadFinished() {
 		mLoadButton.setEnabled(true);
 		mLoadingBar.setVisibility(View.GONE);
 		mLoadTextView.setText("Ready");
-	}
-
-	@Override
-	public void onLoaderReset(Loader<String> loader) {
-
 	}
 }
